@@ -88,19 +88,19 @@ var contactBody = `    <div class="contact-body">
 
 function initListeners(){
 
-    $("nav anchors a").on("click", function(e){
+    $("nav a").on("click", function(e){
         let btnID = e.currentTarget.id;
-        let pageContentID = btnID + "Content";
+        var pageContentID = btnID + "Body";
         console.log(eval(pageContentID));
+        changePageContent(pageContentID)
     })
 }
-
-function changePageContent(pageContentVarName){
-    $("#app").html(eval(pageContentVarName));
-}
-
 
 $(document).ready(function (){
     changePageContent("indexBody");
     initListeners();
 })
+
+function changePageContent(pageContentID){
+  $("#app").html(eval(pageContentID));
+}
